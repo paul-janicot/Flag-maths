@@ -18,11 +18,12 @@ public class Zombielook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float opposite = Mathf.Abs(Player.transform.position.y - transform.position.y);
-        float adjacent = Mathf.Abs(Player.transform.position.x - transform.position.x);
-        angle = Mathf.Atan(opposite/ adjacent) * (180/Mathf.PI);
+        float opposite = (Player.transform.position.x - transform.position.x);
+        float adjacent = (Player.transform.position.y - transform.position.y);
+        angle = 180 - Mathf.Atan(opposite/ adjacent) * (180/Mathf.PI);
         Debug.Log(angle);
 
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
+    
 }
