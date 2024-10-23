@@ -23,21 +23,21 @@ public class move : MonoBehaviour
     void Update()
     {
         transform.position += new Vector3(SpeedX * Time.deltaTime, SpeedY * Time.deltaTime, 0);
-        //if (transform.position.y > (screenSize.y/2)-flagSize)
-        //{
-        //    SpeedY = -SpeedY;
-        //}
-        //if (transform.position.y < (-screenSize.y/2)+flagSize)
-        //{
-        //    SpeedY = -SpeedY;
-        //}
-        //if (transform.position.x > (screenSize.x/2)-flagSize)
-        //{
-        //    SpeedX = -SpeedX;
-        //}
-        //if (transform.position.x < -screenSize.x/2)
-        //{
-        //    SpeedX = -SpeedX;
-        //}
+        if (transform.position.y > (screenSize.y / 2) - flagSize.y/2)
+        {
+            SpeedY = -SpeedY;
+        }
+        if (transform.position.y < (-screenSize.y / 2) + flagSize.y/2)
+        {
+            SpeedY = -SpeedY;
+        }
+        if (transform.position.x > (screenSize.x / 2) - flagSize.x/2)
+        {
+            SpeedX = -SpeedX;
+        }
+        if (transform.position.x < (-screenSize.x / 2)+ flagSize.y/2)
+        {
+            SpeedX = -SpeedX;
+        }
     }
 }
