@@ -20,7 +20,7 @@ public class Zombielook : MonoBehaviour
     {
         float opposite = (Player.transform.position.x - transform.position.x);
         float adjacent = (Player.transform.position.y - transform.position.y);
-        angle = 180 - Mathf.Atan(opposite/ adjacent) * (180/Mathf.PI);
+        angle = 180 - Mathf.Atan2(opposite, adjacent) * (180/Mathf.PI);
         Debug.Log(angle);
 
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
