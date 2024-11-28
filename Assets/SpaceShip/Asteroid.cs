@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AsteroidSpawn : MonoBehaviour
+public class Asteroid : MonoBehaviour
 {
     
-    //[SerializeField] private GameObject mediumAsteroid;
-    //[SerializeField] private GameObject smallAsteroid;
+    [SerializeField] private GameObject mediumAsteroid;
+    [SerializeField] private GameObject smallAsteroid;
     //[SerializeField] private int numberOfAsteroid;
     
     [SerializeField] private float asteroidSpeed;
@@ -41,7 +41,21 @@ public class AsteroidSpawn : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, screenSize.y /2, 0);
         }
+        //if colision and big
+        if (Input.GetKey(KeyCode.W))
+        {
+            Debug.Log("Key pressed");
+            Instantiate(mediumAsteroid, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 359)));
+            Instantiate(mediumAsteroid, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 359)));
+            Destroy(gameObject);
 
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            Instantiate(smallAsteroid, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 359)));
+            Instantiate(smallAsteroid, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 359)));
+            Destroy(gameObject);
+        }
 
     }
 }
