@@ -99,5 +99,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mediumAsteroid: {fileID: 7990307752564463571, guid: 6ad21c1a5ebebc943bf71eb2cac34f35, type: 3}
   smallAsteroid: {fileID: 7990307752564463571, guid: 6ae88af69e0dd534baa00969e54e416e, type: 3}
-  asteroidSpeed: 5
+  asteroidSpeed: 3
   screenSize: {x: 0, y: 0}
