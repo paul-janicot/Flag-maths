@@ -11,14 +11,15 @@ public class Ship : MonoBehaviour
     public float angle;
     private Vector3 goalPosition;
     private Vector3 tempMouse;
-    
-    
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private float coolDown;
+    [SerializeField] private float nextShoot;
     // Start is called before the first frame update
     void Start()
     {
         goalPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         screenSize = Camera.main.ViewportToWorldPoint(Vector2.one) - Camera.main.ViewportToWorldPoint(Vector2.zero);
-        
+        nextShoot = Time.time;
     }
 
     // Update is called once per frame
@@ -63,5 +64,11 @@ public class Ship : MonoBehaviour
         }
         //tempMouse = Input.mousePosition;
 
+        if (Input.GetKey(KeyCode.Q) && Time.time>nextShoot)
+        {
+
+            Instantiate(bullet,transform.position,transform.rotation);
+            nextShoot = Time.time+coolDown;
+        }
     }
 }

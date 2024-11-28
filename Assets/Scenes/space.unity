@@ -157,6 +157,9 @@ MonoBehaviour:
   acceleration: 0.4
   maxSpeed: 0.01
   angle: 0
+  bullet: {fileID: 7341319904477216687, guid: 4d726271f009fc44590c0f0526d95eaa, type: 3}
+  coolDown: 0.2
+  nextShoot: 0
 --- !u!212 &54618301
 SpriteRenderer:
   m_ObjectHideFlags: 0
