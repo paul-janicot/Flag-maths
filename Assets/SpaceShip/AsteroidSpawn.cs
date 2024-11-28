@@ -16,7 +16,7 @@ public class AsteroidSpawn : MonoBehaviour
     void Start()
     {
         screenSize = Camera.main.ViewportToWorldPoint(Vector2.one) - Camera.main.ViewportToWorldPoint(Vector2.zero);
-
+        transform.rotation = Quaternion.Euler(0, 0, Random.Range(0,359));
        
 
     }
