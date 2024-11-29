@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum AsteroidSize
 {
@@ -12,6 +13,7 @@ public enum AsteroidSize
 
 public class Asteroid : MonoBehaviour
 {
+    public static int AsteroidCount = 0;
     public AsteroidSize currentSize = AsteroidSize.Big;
     [SerializeField] private GameObject mediumAsteroid;
     [SerializeField] private GameObject smallAsteroid;
@@ -25,7 +27,7 @@ public class Asteroid : MonoBehaviour
     {
         screenSize = Camera.main.ViewportToWorldPoint(Vector2.one) - Camera.main.ViewportToWorldPoint(Vector2.zero);
         transform.rotation = Quaternion.Euler(0, 0, Random.Range(0,359));
-       
+        AsteroidCount = AsteroidCount + 1;
 
     }
 
@@ -53,6 +55,15 @@ public class Asteroid : MonoBehaviour
 
 
     }
+
+    private void Delete()
+    {
+        AsteroidCount = AsteroidCount - 1;
+        if(AsteroidCount == 0)
+        {
+            SceneManager.LoadScene(2);
+        }
+    }
     public void AsteroidDestroy()
     {
         GameObject asteroid;
@@ -63,6 +74,7 @@ public class Asteroid : MonoBehaviour
         else if (currentSize == AsteroidSize.Small)
         {
             Destroy(gameObject);
+            Delete();
             return;
         }
         else
@@ -72,6 +84,7 @@ public class Asteroid : MonoBehaviour
         Debug.Log("Key pressed");
         Instantiate(asteroid, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 359)));
         Instantiate(asteroid, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 359)));
+        Delete();
         Destroy(gameObject);
     }
 }

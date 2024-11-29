@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.008726558, w: 0.999962}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.47851, y: 0.47851, z: 0.47851}
+  m_LocalScale: {x: 0.5884716, y: 0.5884716, z: 0.5884716}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,7 +101,7 @@ MonoBehaviour:
   currentSize: 0
   mediumAsteroid: {fileID: 7990307752564463571, guid: 6ad21c1a5ebebc943bf71eb2cac34f35, type: 3}
   smallAsteroid: {fileID: 7990307752564463571, guid: 6ae88af69e0dd534baa00969e54e416e, type: 3}
-  asteroidSpeed: 3
+  asteroidSpeed: 2
   screenSize: {x: 0, y: 0}
 --- !u!114 &-4963127744347722090
 MonoBehaviour:
@@ -115,5 +115,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c4819741d9afc4ea647b261f8232a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackedObject: {fileID: 891491097149580171, guid: 71dada6adebaadc45a4c403b1af8fe97, type: 3}
-  radius: 0.33
+  ship: {fileID: 0}
+  radius: 1.03

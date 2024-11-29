@@ -14,7 +14,7 @@ public class Ship : MonoBehaviour
     [SerializeField] private GameObject bullet;
     [SerializeField] private float coolDown;
     [SerializeField] private float nextShoot;
-    public List<GameObject> listOfBullet;
+    public List<GameObject> listOfBullet = new List<GameObject>();
     public float radius;
     // Start is called before the first frame update
     void Start()
@@ -27,6 +27,7 @@ public class Ship : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         if (goalPosition != Camera.main.ScreenToWorldPoint(Input.mousePosition))
         {
             goalPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
