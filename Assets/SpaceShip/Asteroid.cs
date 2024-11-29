@@ -2,9 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum AsteroidSize
+{
+    Big,
+    Medium,
+    Small
+}
+
+
 public class Asteroid : MonoBehaviour
 {
-    
+    public AsteroidSize currentSize = AsteroidSize.Big;
     [SerializeField] private GameObject mediumAsteroid;
     [SerializeField] private GameObject smallAsteroid;
     //[SerializeField] private int numberOfAsteroid;
@@ -41,21 +49,29 @@ public class Asteroid : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, screenSize.y /2, 0);
         }
-        //if colision and big
-        if (Input.GetKey(KeyCode.W))
-        {
-            Debug.Log("Key pressed");
-            Instantiate(mediumAsteroid, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 359)));
-            Instantiate(mediumAsteroid, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 359)));
-            Destroy(gameObject);
+     
 
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            Instantiate(smallAsteroid, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 359)));
-            Instantiate(smallAsteroid, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 359)));
-            Destroy(gameObject);
-        }
 
+    }
+    public void AsteroidDestroy()
+    {
+        GameObject asteroid;
+        if (currentSize == AsteroidSize.Big)
+        {
+            asteroid = mediumAsteroid;
+        }
+        else if (currentSize == AsteroidSize.Small)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        else
+        {
+            asteroid = smallAsteroid;
+        }
+        Debug.Log("Key pressed");
+        Instantiate(asteroid, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 359)));
+        Instantiate(asteroid, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 359)));
+        Destroy(gameObject);
     }
 }

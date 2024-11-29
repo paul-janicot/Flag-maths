@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 607982574043893585}
   - component: {fileID: 9196517009842544214}
   - component: {fileID: 2438994733936692022}
+  - component: {fileID: -4963127744347722090}
   m_Layer: 0
   m_Name: asteroidL
   m_TagString: Untagged
@@ -97,7 +98,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2afa30b4364d0b04794ae86dc51ebec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentSize: 0
   mediumAsteroid: {fileID: 7990307752564463571, guid: 6ad21c1a5ebebc943bf71eb2cac34f35, type: 3}
   smallAsteroid: {fileID: 7990307752564463571, guid: 6ae88af69e0dd534baa00969e54e416e, type: 3}
   asteroidSpeed: 3
   screenSize: {x: 0, y: 0}
+--- !u!114 &-4963127744347722090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7990307752564463571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c4819741d9afc4ea647b261f8232a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackedObject: {fileID: 891491097149580171, guid: 71dada6adebaadc45a4c403b1af8fe97, type: 3}
+  radius: 0.33

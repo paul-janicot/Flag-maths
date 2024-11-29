@@ -14,6 +14,8 @@ public class Ship : MonoBehaviour
     [SerializeField] private GameObject bullet;
     [SerializeField] private float coolDown;
     [SerializeField] private float nextShoot;
+    public List<GameObject> listOfBullet;
+    public float radius;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +41,9 @@ public class Ship : MonoBehaviour
         //angle = 180 - Mathf.Atan2(opposite, adjacent) * (180 / Mathf.PI);
         //if(distance<1.1 && Input.mousePosition != tempMouse)
         //    transform.rotation = Quaternion.Euler(0f, 0f, angle);
+
+
+
         if (Input.GetKey(KeyCode.E))
             speed += new Vector2(acceleration * Time.deltaTime, 0);
         transform.position += -transform.up * speed.x;
@@ -64,11 +69,16 @@ public class Ship : MonoBehaviour
         }
         //tempMouse = Input.mousePosition;
 
-        if (Input.GetKey(KeyCode.Q) && Time.time>nextShoot)
+        if (Input.GetKeyDown(KeyCode.Q) && Time.time>nextShoot)
         {
 
-            Instantiate(bullet,transform.position,transform.rotation);
+            listOfBullet.Add(Instantiate(bullet, transform.position, transform.rotation)); 
             nextShoot = Time.time+coolDown;
         }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, radius);
+
     }
 }
